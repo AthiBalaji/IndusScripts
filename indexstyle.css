@@ -1,0 +1,30 @@
+html{
+    height:100%;
+    box-sizing: border-box;
+}
+body{
+    height:100%;
+    background:rgb(247, 215, 168);
+}
+.mh{
+    font-size: 30px;
+    height: 5em;
+    background: brown;
+    text-align: center;
+    
+}
+nav{
+    background:rgb(90, 70, 47);
+}
+section{
+    background:rgb(180, 137, 88);
+    max-width:70%;
+    margin: 0 auto;
+    border-radius: 25px;
+    min-height: 60%;
+    font-size: 20px;
+}
+section p{
+    position:relative;
+    bottom:-20px;
+}
