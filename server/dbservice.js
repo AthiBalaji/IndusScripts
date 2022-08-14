@@ -4,29 +4,30 @@ let instance = null;
 dotenv.config();
 
 const connection = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-    port: process.env.DB_PORT
+    host: 'localhost',
+    user: 'athi',
+    password: '123',
+    database: 'indusscripts',
+    port: '3306'
 });
 connection.connect((err) => {
     if (err) {
         console.log(err.message);
     }
-    // console.log('db ' + connection.state);
+     console.log('db ' + connection.state);
 });
+
 class DbService {
     static getDbServiceInstance() {
         return instance ? instance : new DbService();
     }
 
-    async searchByName(name) {
+    async searchbytextno(text) {
         try {
             const response = await new Promise((resolve, reject) => {
-                const query = "SELECT * FROM t1 WHERE name = ?;";
+                const query = "SELECT * FROM texts WHERE LEFT(signno, 4) = ?;";
 
-                connection.query(query, [name], (err, results) => {
+                connection.query(query, [text], (err, results) => {
                     if (err) reject(new Error(err.message));
                     resolve(results);
                 })
