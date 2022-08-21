@@ -1,13 +1,27 @@
+
+
+const btn = document.getElementById("searchbtn");
+btn.addEventListener("click", retrieve);
+
+const btn2 = document.getElementById("freqbtn");
+btn2.addEventListener("click", retrieve2);
+
+
+
+
+
+
 function retrieve(){
     const searchvalue = document.getElementById('searchvalue').value;
     fetch('http://localhost:3000/search/' + searchvalue)
     .then(response => response.json())
-    .then(records => displaycard(records['data']));
+    .then((records) => {
+        displaycard(records['data']);
+        console.log("its size in bytes is"+roughSizeOfObject(records['data']));
+
+    });
     
 }
-
-const btn = document.getElementById("searchbtn");
-btn.addEventListener("click", retrieve);
 
 function displaycard(records){
     document.querySelector('.main_display').innerHTML = '';
@@ -84,10 +98,12 @@ function codeconversion(number, card) {
 }
 
 function displayimage(card, text){
-        console.log('its called');
         const imgpanel  = document.createElement("div");
         card.appendChild(imgpanel);
         imgpanel.style.display ="flex";
+        imgpanel.style.flexDirection = "row";
+        imgpanel.style.justifyContent = "center";
+        imgpanel.style.margin = "1em";
         const tarr = text.split('-');
         tarr.forEach((mem)=>{
             img = document.createElement("img");
@@ -98,5 +114,37 @@ function displayimage(card, text){
         });
 
 }
-const btn2 = document.getElementById("freqbtn");
-btn2.addEventListener("click", retrieve2);
+
+function roughSizeOfObject( object ) {
+
+    var objectList = [];
+    var stack = [ object ];
+    var bytes = 0;
+
+    while ( stack.length ) {
+        var value = stack.pop();
+
+        if ( typeof value === 'boolean' ) {
+            bytes += 4;
+        }
+        else if ( typeof value === 'string' ) {
+            bytes += value.length * 2;
+        }
+        else if ( typeof value === 'number' ) {
+            bytes += 8;
+        }
+        else if
+        (
+            typeof value === 'object'
+            && objectList.indexOf( value ) === -1
+        )
+        {
+            objectList.push( value );
+
+            for( var i in value ) {
+                stack.push( value[ i ] );
+            }
+        }
+    }
+    return bytes;
+}
