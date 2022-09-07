@@ -3,8 +3,6 @@
 const btn = document.getElementById("searchbtn");
 btn.addEventListener("click", retrieve);
 
-const btn2 = document.getElementById("freqbtn");
-btn2.addEventListener("click", retrieve2);
 
 
 
@@ -16,8 +14,9 @@ function retrieve(){
     fetch('http://localhost:3000/search/' + searchvalue)
     .then(response => response.json())
     .then((records) => {
+        console.log("inretrieve fey "+ records['data'] );
         displaycard(records['data']);
-        console.log("its size in bytes is"+roughSizeOfObject(records['data']));
+        
 
     });
     
@@ -94,6 +93,51 @@ function codeconversion(number, card) {
     }else if(q==8){
         type.innerHTML = `<b>Type of inscribed object: </b> Miscellanous inscribed objects`
     }
+
+
+    //col5
+    const q2 = (''+number)[5];
+    type = document.createElement('div');
+    card.appendChild(type);
+    if(q2==0){
+        type.innerHTML = `<b>Side of inscribed object: </b> Only side`
+    }else if(q2==1){
+        type.innerHTML = `<b>Side of inscribed object: </b> First side`
+    }else if(q2==2){
+        type.innerHTML = `<b>Side of inscribed object: </b> Second side`
+    }else if(q2==3){
+        type.innerHTML = `<b>Side of inscribed object: </b> Third side`
+    }else if(q2==4){
+        type.innerHTML = `<b>Side of inscribed object: </b> Fourth side`
+    }else if(q2==5){
+        type.innerHTML = `<b>Side of inscribed object: </b> Fifth side`
+    }else if(q2==6){
+        type.innerHTML = `<b>Side of inscribed object: </b> Sixth side`
+    }
+
+    //col6
+    const q3 = (''+number)[6]+(''+number)[7];
+    type = document.createElement('div');
+    card.appendChild(type);
+    if(q3==0){
+        type.innerHTML = `<b>Side of inscribed object: </b> Only side`
+    }else if(q3==1){
+        type.innerHTML = `<b>Side of inscribed object: </b> First side`
+    }else if(q3==2){
+        type.innerHTML = `<b>Side of inscribed object: </b> Second side`
+    }else if(q3==3){
+        type.innerHTML = `<b>Side of inscribed object: </b> Third side`
+    }else if(q3==4){
+        type.innerHTML = `<b>Side of inscribed object: </b> Fourth side`
+    }else if(q3==5){
+        type.innerHTML = `<b>Side of inscribed object: </b> Fifth side`
+    }else if(q3==6){
+        type.innerHTML = `<b>Side of inscribed object: </b> Sixth side`
+    }
+
+    
+    card.style.border="0.01em solid black";
+    card.style.paddingBottom="2em";
     
 }
 
@@ -107,8 +151,8 @@ function displayimage(card, text){
         const tarr = text.split('-');
         tarr.forEach((mem)=>{
             img = document.createElement("img");
-            img.style.width = "5em";
-            img.style.height = "5em";
+            img.style.width = "2.5em";
+            img.style.height = "2.5em";
             img.src = `pictures/page1/${mem}.jpg`;
             imgpanel.appendChild(img);
         });
@@ -148,3 +192,29 @@ function roughSizeOfObject( object ) {
     }
     return bytes;
 }
+
+
+
+// Get the modal
+const modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+const mybtn = document.getElementById("myButton");
+
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+
+mybtn.addEventListener("click", function() {
+    modal.style.display = "block";
+  }
+  )
+
+span.addEventListener("click", function() {
+    modal.style.display = "none";
+  })
+
+window.addEventListener("click", function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  })

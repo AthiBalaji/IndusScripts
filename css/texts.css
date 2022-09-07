@@ -38,12 +38,7 @@ footer{
     background: rgb(91, 20, 0);
     height: 10%;
 }
-a{
-    width:2%;
-    height:100%;
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
+
 a:hover{
     color: yellow;
 }
@@ -55,6 +50,7 @@ input,button{
     position:relative;
     bottom: -2em;
 }
+
 .main_display{
     margin-top:1.5em;
     background:rgb(255, 255, 255);

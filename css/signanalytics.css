@@ -10,33 +10,86 @@ html{
 body{
   height:100%;
 }
-header, h1{
+
+
+/*header and logo styling */
+header, h1{ 
   margin-top:0px;
   background: rgb(251,63,63);
-  background: linear-gradient(90deg, rgba(251,63,63,1) 0%, rgba(101,44,44,1) 57%);
+  background: linear-gradient(110deg, #ff2e05 50%, #ff6a00 50%);
+  
   
 }
 header {
-  padding-top:5%;
   text-align: center;
+  padding-top:5%;
   color:antiquewhite;
   height: 20%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
   
 }
+header > img{
+  margin: 0em 0.5em 0em 0.5em;
+}
+
+header > *{
+  position:relative;
+  top:-30%;
+}
+/* end of header and logo styling */
+
+
+
+
+/*nav and buttons*/
+.button{
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color:  rgb(250, 252, 128);
+  color: black; 
+  border: 2px solid #202920;
+  border-radius:1em;
+  font-family:  "Helvetica Neue";
+}
+.button:hover {
+  background-color: #ffecec;
+  color: white;
+}
+a:hover{
+  decoration:none;
+}
+/*nav and buttons*/
+
 nav{
   display: flex;
   flex-direction: row;
   border-top: 0.3em solid  black;
-  background: rgb(235, 206, 129);
+  background: rgb(208, 141, 100);
   height: 10%;
   font-size:large;
   justify-content: center;
 }
 nav > div{
   height:100%;
-
-  
+  margin:0; 
 }
+
+a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/*nav and buttons*/
+
 
 article{
   /*background: rgb(222, 211, 194);*/
@@ -61,26 +114,38 @@ article{
   height: 80%;
   width:100%;
   background-color:#ffecec;
+  overflow:hidden;
   
+}
+.searchbar { 
+  height: 2em;
+  width:15em;
+}
+#searchbtn{
+  background:black;
+  color:white;
+  height:2em;
+  width:2em;
 }
 footer{
   background: rgb(251,63,63);
-background: linear-gradient(90deg, rgba(251,63,63,1) 0%, rgba(101,44,44,1) 57%);
+  background: linear-gradient(110deg, #ff2e05 50%, #ff6a00 50%);
+  font-family: 'Gill Sans', 'Gill Sans MT','Trebuchet MS', sans-serif;
   height: 10%;
+  display:flex;
+  justify-content: center;
+  color:antiquewhite;
 }
-a{
-  width:2%;
-  height:100%;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
+footer >p{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-a:hover{
-  color: yellow;
-}
+
+
 article{
   text-align: center;
   display: flex;
   justify-content: center;
+  
 
 }
 input,button{
@@ -94,13 +159,16 @@ input,button{
   width:60%;
   border-radius: 1em;
   position: relative;
-  left: 30%;
+  left: 20%;
   bottom: -2em;
   overflow-x:hidden; 
   overflow-y: auto;
   max-height: 70%;
+  border: 0.1em solid black;
 }
-
+.main_display:empty{
+  border: none;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 20px;
@@ -174,7 +242,11 @@ input,button{
   top:0;
   animation: 20s slider infinite;
 }
-img{
+
+.sliderimg{
   width:100%;
   max-height:20%;
+}
+.browse{
+  width:90%;
 }
