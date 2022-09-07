@@ -10,9 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
+
+
 app.get('/search/:searchvalue',(request, response)=>{
     const {searchvalue} = request.params;
-    console.log(searchvalue);
     const db = dbService.getDbServiceInstance();
     const result = db.searchbytextno(searchvalue);
     result
@@ -21,8 +22,22 @@ app.get('/search/:searchvalue',(request, response)=>{
 
 })
 
+app.get('/signrec/:searchvalue',(request, response)=>{
+    const {searchvalue} = request.params;
+    const db = dbService.getDbServiceInstance();
+    const result = db.signrec(searchvalue);
+    result
+    .then(data => {response.json({data : data});
+                    console.log({data : data});}
+        )
+    .catch(err => console.log(err));
+
+})
+
+
+
 app.listen(3000, ()=>{
-    console.log('app is listening');
+    console.log('app is listening'); 
 
 });
 

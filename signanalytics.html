@@ -4,25 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Catalogue of all the texts</title>
+    <title>Browse texts</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond">
     <link rel="stylesheet" href="css/signanalytics.css">
 </head>
 <body>
-    <header>    
-        <h1>A Catalogue of all the texts</h1>
-        <div><img src="/pictures/logo.png" alt="broken" style="width:10em; height:5em"></div>       
-    </header>
-    <nav>
-        <div><a id="home" href = "texts.html">Corpus of texts</a></div>
-    </nav>
+    <header>
+        <img id ="logo" src="/pictures/logo6.png" style="width: 5%;height:100%;" alt="broken">         
+          <h1>InduScripts</h1>
+         <img id ="logo" src="/pictures/logo5.png" style="width: 5%;height:100%;" alt="broken">     
+      </header>
+      <nav>
+        <a id="home" href = "texts.html"><div class="button">BROWSE ALL TEXTS</div></a>
+        <a id="home" href = "signanalytics.html"><div class="button">VIEW SIGN ANALYTICS</div></a>
+        <a id="home" href = "texts.html"><div class="button">GRAPH</div></a>
+      </nav>
     <article>
+        <section class="browse">
+            <input type="text" placeholder="IM77 number" id ="searchvalue" class="searchbar"><button type="button" id="searchbtn">GO</button>
+            <div class="main_display" display="flex">
+            
+            
+            </div>
+        </section>
+        
 
     </article>
     <footer>
-        
+        <img id ="logo" src="/pictures/logo6.png" style="width: 5%;height:100%;" alt="broken">   
+        <p>BASED ON TEXTS, CONCORDANCE AND TABLES BY IRAVATHAM MAHADEVAN, DONE BY ATHI BALAJI AND ANAND KANNAN UNDER THE GUIDANCE OF DR.GEETHA RAMANI</p>
+        <img id ="logo" src="/pictures/logo5.png" style="width: 5%;height:100%;" alt="broken">   
     </footer>
-    <script>
+    <script src="signanalytics.js">
     </script>
 </body>
 </html>
+
+

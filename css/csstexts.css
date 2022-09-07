@@ -32,11 +32,13 @@
   }
   header > img{
     margin: 0em 0.5em 0em 0.5em;
+    position:relative;
+    top: -2em;
   }
   
-  header > *{
+  header > h1{
     position:relative;
-    top:-30%;
+    top: -0.5em;
   }
   /* end of header and logo styling */
   
@@ -61,7 +63,7 @@
     font-family:  "Helvetica Neue";
   }
   .button:hover {
-    background-color: #ffecec;
+    background-color: #ff2e05;
     color: white;
   }
   a:hover{
@@ -72,7 +74,8 @@
   nav{
     display: flex;
     flex-direction: row;
-    border-top: 0.3em solid  black;
+    border-top: 0.1em solid  black;
+    border-bottom: 0.1em solid  black;
     background: rgb(208, 141, 100);
     height: 10%;
     font-size:large;
@@ -122,10 +125,50 @@
     background: linear-gradient(110deg, #ff2e05 50%, #ff6a00 50%);
     font-family: 'Gill Sans', 'Gill Sans MT','Trebuchet MS', sans-serif;
     height: 10%;
+    color:antiquewhite;
   }
   footer >p{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position:relative;
+    top: 1em;
   }
+  footer > #logo_l{
+    float:left;
+  }
+  footer > #logo_r{
+    float:right;
+    position: relative;
+    top:-1.2em;
+  }
+
+
+
+  .searchbar { 
+    height: 4em;
+    width:30em;
+  }
+
+  .mbtn{
+    background:rgb(250, 252, 128);
+    color:rgb(48, 38, 38);
+    height:4em;
+    width:4em;
+    position:relative;
+    top: 1.5em;
+    font-size: large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius:90%;
+  }
+  .mbtn:hover{
+    background-color: #ff2e05;
+  }
+  #searchbtn{
+    background:rgb(250, 252, 128);
+    color:rgb(48, 38, 38);
+    height:4em;
+    width:4em;
+  }
+  
   
   article{
     text-align: center;
@@ -150,8 +193,11 @@
     overflow-x:hidden; 
     overflow-y: auto;
     max-height: 70%;
+    border: 0.1em solid black;
   }
-  
+  .main_display:empty{
+    border: none;
+  }
   /* width */
   ::-webkit-scrollbar {
     width: 20px;
@@ -231,6 +277,51 @@
     max-height:20%;
   }
   .browse{
-    background-color: #202920;
     width:90%;
   }
+
+
+
+
+
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: scroll; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  
+}
+
+/* Modal Content */
+.modal-content {
+  
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border:#000 solid 0.2em;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -38,6 +38,28 @@ class DbService {
             console.log(error);
         }
     }
+
+    async signrec(text) {
+        try {
+            const response = await new Promise((resolve, reject) => {
+                const query = "SELECT * FROM signfreqs WHERE signs = ?;";
+
+                connection.query(query, [text], (err, results) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(results);
+                })
+
+                
+            });
+
+            return response;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+   
+
 }
 
 module.exports = DbService;
