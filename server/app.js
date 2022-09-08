@@ -35,6 +35,19 @@ app.get('/signrec/:searchvalue',(request, response)=>{
 })
 
 
+app.get('/signtext/:searchvalue',(request, response)=>{
+    const {searchvalue} = request.params;
+    const db = dbService.getDbServiceInstance();
+    const result = db.signtext(searchvalue);
+    result
+    .then(data => {response.json({data : data});
+                    console.log({data : data});}
+        )
+    .catch(err => console.log(err));
+
+})
+
+
 
 app.listen(3000, ()=>{
     console.log('app is listening'); 
