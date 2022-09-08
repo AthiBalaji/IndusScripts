@@ -84,3 +84,28 @@ function displayrecurrences(records) {
     
 
 }
+
+
+// Get the modal
+const modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+const mybtn = document.getElementById("myButton");
+
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+
+mybtn.addEventListener("click", function() {
+    modal.style.display = "block";
+  }
+  )
+
+span.addEventListener("click", function() {
+    modal.style.display = "none";
+  })
+
+window.addEventListener("click", function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  })

@@ -118,14 +118,15 @@ article{
   
 }
 .searchbar { 
-  height: 2em;
-  width:15em;
+  height: 3em;
+  width:19em;
+  border: 3px solid;
 }
 #searchbtn{
   background:black;
   color:white;
-  height:2em;
-  width:2em;
+  height:3em;
+  width:3em;
 }
 footer{
   background: rgb(251,63,63);

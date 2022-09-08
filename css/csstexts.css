@@ -318,6 +318,12 @@
   font-size: 28px;
   font-weight: bold;
 }
+.close #scr1
+{
+  height:60%;
+  width:60%;
+}
+
 
 .close:hover,
 .close:focus {
