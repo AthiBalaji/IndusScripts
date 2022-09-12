@@ -28,8 +28,9 @@ function signimages(){
     //symbol
     const symbol = document.createElement("img");
     symbol.src = `pictures/page1/${val}.jpg`;
-    symbol.style.width = "2.5em";
-    symbol.style.height = "2.5em";
+    symbol.style.width = "5em";
+    symbol.style.height = "5em";
+    symbol.style.border = "0.2em solid black";
     symbolholder.style.border = "0.1em solid black";
     symbolholder.appendChild(symbol);
 
@@ -62,12 +63,16 @@ function retrievesigntexts(){
 }
 
 function displaysigntexts(records){
-    
-    const alltextholder = document.getElementById('alltextholder');
+
+  const alltextholder = document.getElementById('alltextholder');
+  
+      
     alltextholder.innerHTML = "";
     records.forEach((record)=>{
         displayimage(alltextholder, record);
     })
+    
+    
 
 }
 
@@ -78,6 +83,8 @@ function displayimage(card, text){
 
     card.appendChild(imgpanel);
     card.style.border = "1px solid black";
+    card.style.fontSize = "30px";
+    card.style.fontWeight = "bold";
     imgpanel.style.display ="flex";
     imgpanel.style.flexDirection = "row";
     imgpanel.style.justifyContent = "center";
@@ -104,13 +111,15 @@ function displayimage(card, text){
         
          
 
-        img.style.width = "2.5em";
-        img.style.height = "2.5em";
+        img.style.width = "3em";
+        img.style.height = "3em";
         img.src = `pictures/page1/${mem}.jpg`;
-        if(mem === val5){
-            img.style.border = "0.2em solid brown";
-        }
+        
         imgpanel.appendChild(img);
+
+        if(mem === val5){
+          img.style.border = "0.2em solid brown";
+      }
 
     });
 
@@ -134,7 +143,8 @@ function displayrecurrences(records) {
             card.style.flexWrap = "wrap";
             card.style.padding = "0.2em";
             card.style.margin = "1em";
-            card.innerHTML = `<div class="flex-element" style="margin:1em; font-size:large; font-weight:900; font-size:large; font-weight:900;">At Position 1:  ${records[0].pos_1_occurrence} times</div>
+            card.innerHTML = `<div class="flex-element" style="margin:1em; font-size:large; font-weight:900; font-size:large; font-weight:900;">Total Occurence:  ${records[0].total_occurrence} times</div>
+            <div class="flex-element" style="margin:1em; font-size:large; font-weight:900; font-size:large; font-weight:900;">At Position 1:  ${records[0].pos_1_occurrence} times</div>
             <div class="flex-element" style="margin:1em; font-size:large; font-weight:900;">At Position 2:  ${records[0].pos_2_occurrence} times</div>
             <div class="flex-element" style="margin:1em; font-size:large; font-weight:900;">At Position 3:  ${records[0].pos_3_occurrence} times</div>
             <div class="flex-element" style="margin:1em; font-size:large; font-weight:900;">At Position 4:  ${records[0].pos_4_occurrence} times</div>

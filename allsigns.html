@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browse texts</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond">
-    <link rel="stylesheet" href="css/signanalytics.css">
+    <link rel="stylesheet" href="css/allsigns.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -20,15 +20,28 @@
       </nav>
       
     
-    <article>
-        <section class="browse">
-            <input type="text"  placeholder="IM77 number" id ="searchvalue" class="searchbar"><button type="button" id="searchbtn">GO</button>
-            <div class="main_display" display="flex">
-            
-            
-            </div>
-        </section>
+     <section style="display:flex; justify-content: center;">
+        <h2>A display of all 417 signs</h2>
+     </section> 
+    <article class=" allsigns">
+        <div class="loader">
+            <img id ="logo" src="/pictures/logo6.png" style="width: 3em;height:3em;" alt="broken"> 
+          </div>
+        <input type="text" placeholder="IM77 number" id ="searchvalue" class="searchbar" style="display:none;"><button type="button" id="searchbtn" style="display:none;">GO</button>
+        <script>
+            for (let i = 0; i < 418; i++) {
+                img = document.createElement("img");
         
+         
+
+                img.style.width = "4em";
+                img.style.height = "4em";
+                img.style.border = "1px solid black";
+                img.src = `pictures/page1/${i}.jpg`;
+        
+                document.querySelector('.allsigns').appendChild(img);
+            }
+        </script>
 
     </article>
     <footer>

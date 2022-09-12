@@ -23,7 +23,8 @@ function retrieve(){
 }
 
 function displaycard(records){
-    document.querySelector('.main_display').innerHTML = '';
+    if(records.length != 0) {
+        document.querySelector('.main_display').innerHTML = '';
     records.forEach(
         (record,idx) =>{
             //creates a card for each record
@@ -37,6 +38,11 @@ function displaycard(records){
         }
 
     );
+     }else{
+        document.querySelector('.main_display').innerHTML = '';
+        document.querySelector('.main_display').innerHTML = `<b>Please enter a valid input</b>`;
+     }
+    
 }
 //takes the code and dynamically renders the information
 function codeconversion(number, card) {
@@ -95,7 +101,7 @@ function codeconversion(number, card) {
     }
 
 
-    //col5
+    //col6
     const q2 = (''+number)[5];
     type = document.createElement('div');
     card.appendChild(type);
@@ -117,24 +123,64 @@ function codeconversion(number, card) {
 
     //col6
     const q3 = (''+number)[6]+(''+number)[7];
+    console.log(q3);
     type = document.createElement('div');
     card.appendChild(type);
-    if(q3==0){
-        type.innerHTML = `<b>Side of inscribed object: </b> Only side`
-    }else if(q3==1){
-        type.innerHTML = `<b>Side of inscribed object: </b> First side`
-    }else if(q3==2){
-        type.innerHTML = `<b>Side of inscribed object: </b> Second side`
-    }else if(q3==3){
-        type.innerHTML = `<b>Side of inscribed object: </b> Third side`
-    }else if(q3==4){
-        type.innerHTML = `<b>Side of inscribed object: </b> Fourth side`
-    }else if(q3==5){
-        type.innerHTML = `<b>Side of inscribed object: </b> Fifth side`
-    }else if(q3==6){
-        type.innerHTML = `<b>Side of inscribed object: </b> Sixth side`
+    if(q3<=35){
+        type.innerHTML = `<b>Field Symbol: </b> Animals`
+    }else if(q3>35 && q3<=43){
+        type.innerHTML = `<b>Field Symbol: </b> Reptiles, Fish or Birds`
+    }else if(q3>43 && q3 <=46){
+        type.innerHTML = `<b>Field Symbol: </b> Trees and Leaves`
+    }else if(q3>46 && q3 <=59){
+        type.innerHTML = `<b>Field Symbol: </b> anthrophomorphic forms`
+    }else if(q3>59 && q3 <=81){
+        type.innerHTML = `<b>Field Symbol: </b> Scenes with anthrophomorphic and animal figures and other objects`
+    }else if(q3>81 && q3 <=98){
+        type.innerHTML = `<b>Field Symbol: </b> Various symbols, motifs and geometrical patterns`
+    }else if(q3==99){
+        type.innerHTML = `<b>Field Symbol: </b> Damaged or illegible field symbol`
+    }else if(q3==00){
+        type.innerHTML = `<b>Field Symbol: </b> No field symbol on the side`
     }
 
+
+    //col9
+    const q9 = (''+number)[8];
+    type = document.createElement('div');
+    card.appendChild(type);
+    if(q9==0){
+        type.innerHTML = `<b>Line of text: </b> Only line of text on the side`
+    }else if(q9==1){
+        type.innerHTML = `<b>Line of text: </b> First line`
+    }else if(q9==2){
+        type.innerHTML = `<b>Line of text: </b> Second line`
+    }else if(q9==3){
+        type.innerHTML = `<b>Line of text: </b> Third line`
+    }else if(q9==9){
+        type.innerHTML = `<b>Line of text: </b> The side has no line of text but only a field symbol`
+    }
+
+
+    //col10
+    const q10 = (''+number)[9];
+    type = document.createElement('div');
+    card.appendChild(type);
+    if(q10==0){
+        type.innerHTML = `<b>Direction of writing: </b> No line of text`
+    }else if(q10==1){
+        type.innerHTML = `<b>Direction of writing: </b> Right to left`
+    }else if(q10==2){
+        type.innerHTML = `<b>Direction of writing: </b> Left to right`
+    }else if(q10==3){
+        type.innerHTML = `<b>Direction of writing: </b> Single sign in the line of text`
+    }else if(q10==4){
+        type.innerHTML = `<b>Direction of writing: </b> Top to bottom`
+    }else if(q10==5){
+        type.innerHTML = `<b>Direction of writing: </b> Symmetrical arrangement of sign`
+    }else if(q10==9){
+        type.innerHTML = `<b>Direction of writing: Doubtful on account of damage and illegibility </b> `
+    }
     
     card.style.border="0.01em solid black";
     card.style.paddingBottom="2em";
@@ -148,11 +194,13 @@ function displayimage(card, text){
         imgpanel.style.flexDirection = "row";
         imgpanel.style.justifyContent = "center";
         imgpanel.style.margin = "1em";
+
         const tarr = text.split('-');
         tarr.forEach((mem)=>{
             img = document.createElement("img");
-            img.style.width = "2.5em";
-            img.style.height = "2.5em";
+            img.style.width = "5em";
+            img.style.height = "5em";
+            img.style.border= "2px solid black";
             img.src = `pictures/page1/${mem}.jpg`;
             imgpanel.appendChild(img);
         });

@@ -68,7 +68,16 @@ a:hover{
   decoration:none;
 }
 /*nav and buttons*/
-
+.searchbar { 
+  height: 4em;
+  width:30em;
+}
+#searchbtn{
+  background:rgb(250, 252, 128);
+  color:rgb(48, 38, 38);
+  height:4em;
+  width:4em;
+}
 nav{
   display: flex;
   flex-direction: row;
@@ -116,16 +125,6 @@ article{
   background-color:#ffecec;
   overflow:hidden;
   
-}
-.searchbar { 
-  height: 2em;
-  width:15em;
-}
-#searchbtn{
-  background:black;
-  color:white;
-  height:2em;
-  width:2em;
 }
 footer{
   background: rgb(251,63,63);
